@@ -6,11 +6,14 @@ import { useNavigate } from "react-router-dom"
 import { useMatchStore } from "@/store/useMatchStore"
 import { MatchChartType, ScoreType, Team } from "@/types/match"
 import useLiveScore from "../hooks/useLiveScore"
+import { getTodayDateString } from "../utils/getToDay"
+import { formatUTCDate } from "../utils/formatUTCDate"
 
 const Match = ({ home, away, status, day, venue, time, chart, score, matchId }: { matchId?: number, home: Team, away: Team, status: string, day: string, venue?: string, time?: string, chart?: MatchChartType, score: ScoreType }) => {
     const setSelectedMatch = useMatchStore((state) => state.setSelectedMatch);
     const { matchData } = useLiveScore(matchId);
     const navigate = useNavigate();
+    const today = getTodayDateString()
 
     const handleClick = () => {
         setSelectedMatch({ matchId, home, away, status, day, venue, time, chart, score });
@@ -49,7 +52,7 @@ const Match = ({ home, away, status, day, venue, time, chart, score, matchId }: 
             </div>
             <div className={`${getStatusStyle(status)} rounded-xl font-medium px-4 py-2`}>{status}</div>
             <div className="flex items-center gap-4 text-[#636363]">
-                <p className="pr-6 w-60 truncate">{day}</p>
+                <p className="pr-6 w-60 truncate">{status.toLowerCase() === "live" ? formatUTCDate(today) : day}</p>
                 <ChartLine className={iconStyle} onClick={handleClick} />
             </div>
 
