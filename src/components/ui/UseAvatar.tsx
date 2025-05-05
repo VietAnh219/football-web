@@ -58,7 +58,7 @@ const UseAvatar = () => {
                     <MenuItems className='absolute right-0 mt-2 w-56 origin-top-right divide-gray-100 rounded-md bg-white shadow-2xl ring-1 ring-black/5 focus:outline-none'>
                         <div className='!px-[8px] !py-[8px]'>
                             <MenuItem>
-                                {({ active }) => (
+                                {() => (
                                     <button
                                         onClick={handleLogout}
                                         className={`text-red-600 cursor-pointer group flex w-full items-center rounded-md gap-2 text-base`}
