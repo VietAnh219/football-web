@@ -1,0 +1,83 @@
+import { News } from "@/types/news";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogTitle,
+    DialogTrigger,
+} from "./dialog";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { formatUTCDate } from "../utils/formatUTCDate";
+
+const Newpaper = ({ newspaper }: { newspaper: News[] }) => {
+
+    console.log(newspaper)
+
+    return (
+        <>
+            <Swiper
+                slidesPerView={"auto"}
+                spaceBetween={20}
+                navigation={{
+                    nextEl: ".custom-next",
+                    prevEl: ".custom-prev"
+                }}
+                modules={[Navigation]}
+                className="mySwiper"
+            >
+                {newspaper.map((item, index) => (
+                    <SwiperSlide key={index} style={{ width: "250px" }}>
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <div className="cursor-pointer text-left border-1 h-[300px] rounded-md border-[#e1dfdf]">
+                                    <div>
+                                        <img src={item.img} alt="news" className="w-full h-[140px] object-cover rounded-t-md" />
+                                    </div>
+                                    <div className="ml-2">
+                                        <h1 className="uppercase text-[#5742A9] text-[12px] font-semibold py-4">
+                                            {item.league}
+                                        </h1>
+                                        <p className="pb-2 font-medium text-[14px]">
+                                            {item.title}
+                                        </p>
+                                        <p className="truncate text-[14px]">{item.desc}</p>
+                                    </div>
+                                </div>
+                            </DialogTrigger>
+                            <DialogContent className="!max-w-[600px] p-8" aria-describedby={undefined}>
+                                <div className="w-full rounded-2xl overflow-hidden">
+                                    <img
+                                        src={item.img}
+                                        alt="news"
+                                        className="w-full h-auto max-h-[350px] object-cover object-center"
+                                    />
+                                </div>
+                                <div>
+                                    <DialogTitle className="text-xl">{item.title}</DialogTitle>
+                                    <DialogDescription className="mt-2">
+                                        {item.desc}
+                                    </DialogDescription>
+                                </div>
+                                <DialogFooter className="lg:justify-between">
+                                    <div>Author: <span className="text-red-600">{item.author}</span></div>
+                                    <div>Date: {formatUTCDate(item.date)}</div>
+                                </DialogFooter>
+                            </DialogContent>
+                        </Dialog>
+                    </SwiperSlide>
+                ))}
+                <div className="custom-prev cursor-pointer absolute top-1/2 z-20 -translate-y-1/3  -translate-x-1/3 text-white p-1 rounded-full hover:bg-white transition">
+                    <ChevronLeft className="w-5 h-5 text-[#37003c]" />
+                </div>
+                <div className="custom-next cursor-pointer absolute -right-1 top-1/2 z-20 -translate-y-1/2  text-white p-1 rounded-full hover:bg-white transition">
+                    <ChevronRight className="w-5 h-5 text-[#37003c]" />
+                </div>
+            </Swiper>
+        </>
+    );
+};
+
+export default Newpaper;
