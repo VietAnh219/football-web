@@ -22,7 +22,7 @@ type OrderActions = {
 const UpgradePremium = () => {
     const { user } = useAuthStore();
 
-    const handleApprove = async (actions: unknown) => {
+    const handleApprove = async (_data: unknown, actions: unknown) => {
         try {
             const orderActions = actions as OrderActions;
             const details = await orderActions.order.capture();
