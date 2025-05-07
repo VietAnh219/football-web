@@ -1,14 +1,16 @@
+import { useThemeStore } from "@/components/hooks/useDarkMode";
 import { getBackgroundColor } from "@/components/utils/getBgStading";
 import { StandingTableItem } from "@/types/stading";
 import {
     Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
-    Box, Avatar
+    Box, Avatar,
 } from "@mui/material";
 import { FaCheckCircle } from "react-icons/fa";
 import { FaCircleMinus } from "react-icons/fa6";
 import { GoXCircleFill } from "react-icons/go";
 
 const TableLeague = ({ table, league }: { table: StandingTableItem[], league: string }) => {
+    const isDark = useThemeStore((state) => state.theme === "dark");
 
     return (
         <Box
@@ -23,21 +25,22 @@ const TableLeague = ({ table, league }: { table: StandingTableItem[], league: st
                 sx={{
                     height: "100%",
                     overflowY: table.length > 7 ? "auto" : "hidden",
+                    backgroundColor: isDark ? "#121212" : "#ffffff"
                 }}
             >
                 <Table stickyHeader>
                     <TableHead>
-                        <TableRow sx={{ backgroundColor: "#fff", boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)" }}>
-                            <TableCell align="center" sx={{ fontFamily: 'Montserrat, sans-serif' }}>#</TableCell>
-                            <TableCell sx={{ fontFamily: 'Montserrat, sans-serif' }}>Team</TableCell>
-                            <TableCell sx={{ fontFamily: 'Montserrat, sans-serif' }} align="center">W</TableCell>
-                            <TableCell sx={{ fontFamily: 'Montserrat, sans-serif' }} align="center">D</TableCell>
-                            <TableCell sx={{ fontFamily: 'Montserrat, sans-serif' }} align="center">L</TableCell>
-                            <TableCell sx={{ fontFamily: 'Montserrat, sans-serif' }} align="center">GF</TableCell>
-                            <TableCell sx={{ fontFamily: 'Montserrat, sans-serif' }} align="center">GA</TableCell>
-                            <TableCell sx={{ fontFamily: 'Montserrat, sans-serif' }} align="center">GD</TableCell>
-                            <TableCell sx={{ fontFamily: 'Montserrat, sans-serif' }} align="center">Points</TableCell>
-                            <TableCell sx={{ fontFamily: 'Montserrat, sans-serif' }} align="center">Last Match</TableCell>
+                        <TableRow sx={{ backgroundColor: isDark ? "#1B1C21" : "#fff", boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)" }}>
+                            <TableCell align="center" sx={{ backgroundColor: isDark ? "#1B1C21" : "#fff", color: isDark ? "#fff" : "#000", fontFamily: 'Montserrat, sans-serif' }}>#</TableCell>
+                            <TableCell sx={{ backgroundColor: isDark ? "#1B1C21" : "#fff", color: isDark ? "#fff" : "#000", fontFamily: 'Montserrat, sans-serif' }}>Team</TableCell>
+                            <TableCell sx={{ backgroundColor: isDark ? "#1B1C21" : "#fff", color: isDark ? "#fff" : "#000", fontFamily: 'Montserrat, sans-serif' }} align="center">W</TableCell>
+                            <TableCell sx={{ backgroundColor: isDark ? "#1B1C21" : "#fff", color: isDark ? "#fff" : "#000", fontFamily: 'Montserrat, sans-serif' }} align="center">D</TableCell>
+                            <TableCell sx={{ backgroundColor: isDark ? "#1B1C21" : "#fff", color: isDark ? "#fff" : "#000", fontFamily: 'Montserrat, sans-serif' }} align="center">L</TableCell>
+                            <TableCell sx={{ backgroundColor: isDark ? "#1B1C21" : "#fff", color: isDark ? "#fff" : "#000", fontFamily: 'Montserrat, sans-serif' }} align="center">GF</TableCell>
+                            <TableCell sx={{ backgroundColor: isDark ? "#1B1C21" : "#fff", color: isDark ? "#fff" : "#000", fontFamily: 'Montserrat, sans-serif' }} align="center">GA</TableCell>
+                            <TableCell sx={{ backgroundColor: isDark ? "#1B1C21" : "#fff", color: isDark ? "#fff" : "#000", fontFamily: 'Montserrat, sans-serif' }} align="center">GD</TableCell>
+                            <TableCell sx={{ backgroundColor: isDark ? "#1B1C21" : "#fff", color: isDark ? "#fff" : "#000", fontFamily: 'Montserrat, sans-serif' }} align="center">Points</TableCell>
+                            <TableCell sx={{ backgroundColor: isDark ? "#1B1C21" : "#fff", color: isDark ? "#fff" : "#000", fontFamily: 'Montserrat, sans-serif' }} align="center">Last Match</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -45,29 +48,29 @@ const TableLeague = ({ table, league }: { table: StandingTableItem[], league: st
                             <TableRow
                                 key={team.position}
                                 sx={{
-                                    backgroundColor: getBackgroundColor(team.position, league)
+                                    backgroundColor: getBackgroundColor(team.position, league, isDark)
                                 }}
                             >
-                                <TableCell align="center" sx={{ fontWeight: 600, fontSize: "16px", fontFamily: 'Montserrat, sans-serif' }}>
+                                <TableCell align="center" sx={{ fontWeight: 600, color: isDark ? "#fff" : "#000", fontSize: "16px", fontFamily: 'Montserrat, sans-serif' }}>
                                     {team.position}
                                 </TableCell>
-                                <TableCell sx={{ display: "flex", alignItems: "center", gap: 1, fontSize: "16px", fontFamily: 'Montserrat, sans-serif' }}>
+                                <TableCell sx={{ display: "flex", alignItems: "center", gap: 1, fontSize: "16px", color: isDark ? "#fff" : "#000", fontFamily: 'Montserrat, sans-serif' }}>
                                     <Avatar src={team.team.crest} sx={{ width: 32, height: 32, fontFamily: 'Montserrat, sans-serif' }} />
                                     {team.team.shortName}
                                 </TableCell>
-                                <TableCell align="center" sx={{ fontSize: "16px", fontFamily: 'Montserrat, sans-serif' }}>{team.won}</TableCell>
-                                <TableCell align="center" sx={{ fontSize: "16px", fontFamily: 'Montserrat, sans-serif' }}>{team.draw}</TableCell>
-                                <TableCell align="center" sx={{ fontSize: "16px", fontFamily: 'Montserrat, sans-serif' }}>{team.lost}</TableCell>
-                                <TableCell align="center" sx={{ fontWeight: "bold", fontSize: "16px", fontFamily: 'Montserrat, sans-serif' }}>
+                                <TableCell align="center" sx={{ fontSize: "16px", color: isDark ? "#fff" : "#000", fontFamily: 'Montserrat, sans-serif' }}>{team.won}</TableCell>
+                                <TableCell align="center" sx={{ fontSize: "16px", color: isDark ? "#fff" : "#000", fontFamily: 'Montserrat, sans-serif' }}>{team.draw}</TableCell>
+                                <TableCell align="center" sx={{ fontSize: "16px", color: isDark ? "#fff" : "#000", fontFamily: 'Montserrat, sans-serif' }}>{team.lost}</TableCell>
+                                <TableCell align="center" sx={{ fontWeight: "bold", color: isDark ? "#fff" : "#000", fontSize: "16px", fontFamily: 'Montserrat, sans-serif' }}>
                                     {team.goalsFor}
                                 </TableCell>
-                                <TableCell align="center" sx={{ fontWeight: "bold", fontSize: "16px", fontFamily: 'Montserrat, sans-serif' }}>
+                                <TableCell align="center" sx={{ fontWeight: "bold", fontSize: "16px", color: isDark ? "#fff" : "#000", fontFamily: 'Montserrat, sans-serif' }}>
                                     {team.goalsAgainst}
                                 </TableCell>
-                                <TableCell align="center" sx={{ fontWeight: "bold", fontSize: "16px", fontFamily: 'Montserrat, sans-serif' }}>
+                                <TableCell align="center" sx={{ fontWeight: "bold", fontSize: "16px", color: isDark ? "#fff" : "#000", fontFamily: 'Montserrat, sans-serif' }}>
                                     {team.goalDifference}
                                 </TableCell>
-                                <TableCell align="center" sx={{ fontWeight: "bold", fontSize: "16px", fontFamily: 'Montserrat, sans-serif' }}>
+                                <TableCell align="center" sx={{ fontWeight: "bold", fontSize: "16px", color: isDark ? "#fff" : "#000", fontFamily: 'Montserrat, sans-serif' }}>
                                     {team.points}
                                 </TableCell>
                                 <TableCell align="center" sx={{ p: 1 }}>

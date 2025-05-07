@@ -14,8 +14,6 @@ import { formatUTCDate } from "../utils/formatUTCDate";
 
 const Newpaper = ({ newspaper }: { newspaper: News[] }) => {
 
-    console.log(newspaper)
-
     return (
         <>
             <Swiper
@@ -37,13 +35,13 @@ const Newpaper = ({ newspaper }: { newspaper: News[] }) => {
                                         <img src={item.img} alt="news" className="w-full h-[140px] object-cover rounded-t-md" />
                                     </div>
                                     <div className="ml-2">
-                                        <h1 className="uppercase text-[#5742A9] text-[12px] font-semibold py-4">
+                                        <h1 className="uppercase text-[#5742A9] text-[12px] font-semibold py-4 dark:text-[#F5C451]">
                                             {item.league}
                                         </h1>
-                                        <p className="pb-2 font-medium text-[14px]">
+                                        <p className="pb-2 font-medium text-[14px] dark:text-white">
                                             {item.title}
                                         </p>
-                                        <p className="truncate text-[14px]">{item.desc}</p>
+                                        <p className="truncate text-[14px] dark:text-[#A4A4A4]">{item.desc}</p>
                                     </div>
                                 </div>
                             </DialogTrigger>
@@ -69,11 +67,11 @@ const Newpaper = ({ newspaper }: { newspaper: News[] }) => {
                         </Dialog>
                     </SwiperSlide>
                 ))}
-                <div className="custom-prev cursor-pointer absolute top-1/2 z-20 -translate-y-1/3  -translate-x-1/3 text-white p-1 rounded-full hover:bg-white transition">
-                    <ChevronLeft className="w-5 h-5 text-[#37003c]" />
+                <div className="custom-prev cursor-pointer absolute top-1/2 z-20 -translate-y-1/3  -translate-x-1/3 bg-black/60 text-white p-2 rounded-full hover:bg-black transition">
+                    <ChevronLeft className="w-5 h-5 text-[#fff]" />
                 </div>
-                <div className="custom-next cursor-pointer absolute -right-1 top-1/2 z-20 -translate-y-1/2  text-white p-1 rounded-full hover:bg-white transition">
-                    <ChevronRight className="w-5 h-5 text-[#37003c]" />
+                <div className="custom-next cursor-pointer absolute -right-1 top-1/2 z-20 -translate-y-1/2  bg-black/60 text-white p-2 rounded-full hover:bg-black transition">
+                    <ChevronRight className="w-5 h-5 text-[#fff]" />
                 </div>
             </Swiper>
         </>

@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { motion } from "framer-motion";
 import { Link, useLocation } from 'react-router-dom';
 
-export const NavLink = ({ linkData }: { linkData: MenuItem[] }) => {
+export const NavLink = ({ linkData, onLinkClick }: { linkData: MenuItem[], onLinkClick?: () => void }) => {
     const { user } = useAuthStore();
     const location = useLocation();
     const path = location.pathname.split("/")[1];
@@ -20,7 +20,12 @@ export const NavLink = ({ linkData }: { linkData: MenuItem[] }) => {
                     const isActive = path === link.link;
 
                     return (
-                        <Link key={link.link} to={link.link} className="relative">
+                        <Link
+                            key={link.link}
+                            to={link.link}
+                            className="relative"
+                            onClick={onLinkClick}
+                        >
                             {isActive && (
                                 <motion.div
                                     layoutId="active-pill"
@@ -32,7 +37,7 @@ export const NavLink = ({ linkData }: { linkData: MenuItem[] }) => {
                             <div
                                 className={clsx(
                                     "relative z-10 flex items-center gap-3 px-6 py-3 rounded-full transition-colors",
-                                    isActive ? "text-purple-700 font-semibold" : "text-[#464646] hover:text-purple-600"
+                                    isActive ? "text-purple-700 dark:text-[#F5C451] font-semibold" : "text-[#464646] dark:hover:text-[#F5C451] hover:text-purple-600"
                                 )}
                             >
                                 {link.icon}

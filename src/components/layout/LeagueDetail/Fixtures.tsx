@@ -21,16 +21,16 @@ const Fixtures = () => {
 
     return (
         <>
-            <div className="flex items-center justify-between gap-1 mb-2">
-                <h1 className="text-2xl font-semibold">Fixtures</h1>
+            <div className="flex items-center justify-between gap-1 mb-2 ">
+                <h1 className="text-xl md:text-2xl font-bold dark:text-white">Fixtures</h1>
                 {endpoint !== "CL" && (
                     <Select onValueChange={(value) => setRound(value)}>
-                        <SelectTrigger className="w-[180px]">
+                        <SelectTrigger className="w-[180px] dark:bg-[#1B1C21] dark:text-white">
                             <SelectValue placeholder="Choose Matchday" />
                         </SelectTrigger>
-                        <SelectContent>
-                            <SelectGroup>
-                                <SelectLabel>Round</SelectLabel>
+                        <SelectContent className="dark:bg-[#1B1C21]">
+                            <SelectGroup className="dark:text-white">
+                                <SelectLabel className="dark:text-white">Round</SelectLabel>
                                 {
                                     selectedRound.map((item, index) => (
                                         <SelectItem value={item} key={index}>{item}</SelectItem>
@@ -55,7 +55,7 @@ const Fixtures = () => {
                         >
                             {groupedFixtures.map((round, index) => (
                                 <div className="mt-6" key={index}>
-                                    <h1 className="mb-4 text-xl text-[#37003c] font-bold">{round.date}</h1>
+                                    <h1 className="mb-4 text-[16px] md:text-xl text-[#37003c] font-bold dark:text-white">{round.date}</h1>
                                     <MatchCard matches={round.matches} />
                                 </div>
                             ))}

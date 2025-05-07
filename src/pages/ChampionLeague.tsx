@@ -19,10 +19,10 @@ const ChampionLeague = () => {
 
     return (
         <div className="w-full h-full relative rounded-2xl overflow-hidden">
-            <div className="w-full h-[500px] relative rounded-2xl overflow-hidden mb-6">
+            <div className="w-full h-[150px] md:h-[300px] xl:h-[500px] relative rounded-2xl overflow-hidden mb-6">
                 <div className="absolute inset-0 z-0 bg-cover bg-center" style={{ backgroundImage: `url("/championleague.jpg")` }} />
             </div>
-            <div className="bg-white rounded-2xl px-6 py-8 h-full">
+            <div className="bg-white rounded-2xl px-6 py-8 h-full dark:bg-[#1B1C21]">
                 <FadeInSection>
                     <Fixtures />
                 </FadeInSection>

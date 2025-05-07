@@ -34,29 +34,32 @@ const Match = ({ home, away, status, day, venue, time, chart, score, matchId }: 
     };
 
     return (
-        <div className="flex py-4 px-6 justify-between">
-            <div className="flex items-center gap-16">
-                <div className="w-[200px] flex items-start">
+        <div className="flex flex-col border-b-1 sm:border-none sm:flex-row sm:py-4 sm:px-2 xl:px-6 px-4 py-2 justify-between items-start sm:items-center gap-4 sm:gap-0">
+            <div className="flex flex-col  sm:flex-row items-center gap-4 sm:gap-16 w-full sm:w-auto justify-between sm:justify-start">
+                <div className="w-full sm:w-[100px] lg:w-[200px] flex items-center sm:items-start justify-start">
                     <ClubLogo src={home.crest} name={home.shortName} width="32px" height="32px" horizonal />
                 </div>
                 {
                     (status.toLowerCase() === "upcoming" || status.toLowerCase() === "friendly")
-                        ?
-                        <p className="text-xl text-yellow-400">vs</p>
-                        :
-                        <Score score={status.toLowerCase() === "live" && matchData ? matchData.score : score} />
+                        ? <p className="text-xl text-yellow-400">vs</p>
+                        : <Score score={status.toLowerCase() === "live" && matchData ? matchData.score : score} />
                 }
-                <div className="w-[200px] flex justify-end">
+                <div className="w-full sm:w-[100px] lg:w-[200px] flex justify-end">
                     <ClubLogo src={away.crest} name={away.shortName} width="32px" height="32px" />
                 </div>
             </div>
-            <div className={`${getStatusStyle(status)} rounded-xl font-medium px-4 py-2`}>{status}</div>
-            <div className="flex items-center gap-4 text-[#636363]">
-                <p className="pr-6 w-60 truncate">{status.toLowerCase() === "live" ? formatUTCDate(today) : day}</p>
-                <ChartLine className={iconStyle} onClick={handleClick} />
+
+            <div className={`${getStatusStyle(status)} hidden xl:block rounded-xl font-medium px-4 py-2 text-center sm:text-left`}>
+                {status}
             </div>
 
-        </div >
+            <div className="flex items-center gap-2 sm:gap-4 text-[#636363] w-full sm:w-auto justify-between sm:justify-end dark:text-white">
+                <p className="pr-2 sm:pr-0 lg:pr-6 w-full lg:w-60 truncate text-sm sm:text-base">
+                    {status.toLowerCase() === "live" ? formatUTCDate(today) : day}
+                </p>
+                <ChartLine className={`${iconStyle} dark:text-white`} onClick={handleClick} />
+            </div>
+        </div>
 
     )
 }

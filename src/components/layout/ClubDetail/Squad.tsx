@@ -4,7 +4,6 @@ import { SquadSection } from "@/types/club";
 
 const Squad = () => {
     const selectedClub = useClubDetailStore((state) => state.selectedClub);
-    // console.log(selectedClub?.squad)
     const squadPlayer: SquadSection[] = [
         {
             title: "Head Coach",

@@ -12,9 +12,14 @@ const Sidebar = () => {
         <div className={`w-full h-full flex flex-col p-6 bg-[#F6F6F4] ${darkMode} `} >
             <Link to="/" className='flex gap-2 items-center cursor-pointer'>
                 <span>
-                    <img src={logoImage} alt="logo" />
+                    <img src={logoImage} alt="logo" className='w-10 h-10' />
                 </span>
-                <h1 className='text-[18px] font-bold'>Onesport</h1>
+                <h1 className='text-2xl font-bold dark:text-white'>
+                    Onesport
+                    <span className='pl-2 align-super text-xs font-medium text-gray-500 dark:text-[#F5C451]'>
+                        {user?.role === "premium" && "premium"}
+                    </span>
+                </h1>
             </Link>
             <MenuSide />
             {user?.role === "premium" && <LeagueSide />}

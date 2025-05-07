@@ -5,7 +5,7 @@ const PlayerTactic = ({ number, top, left, color, name }: { number: number; top:
         style={{ top, left, transform: "translate(-50%, -50%)" }}
     >
         <div
-            className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm cursor-pointer"
+            className="w-5 h-5 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-white font-bold text-xs sm:text-sm cursor-pointer"
             style={{ backgroundColor: color }}
         >
             {number}

@@ -59,6 +59,15 @@
   background-color: #453597;
 }
 
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .pl {
   width: 6em;
   height: 6em;
@@ -97,6 +106,10 @@
 
 .club-sites-swiper .swiper-wrapper {
   height: 45px;
+}
+
+.highlights-sites-swiper .swiper-wrapper {
+  height: 220px;
 }
 
 @keyframes ringA {

@@ -9,12 +9,12 @@ const BannerClub = () => {
     const formatted = Number(selectedClub?.stadiumCapacity).toLocaleString()
 
     return (
-        <div className={`w-full h-[400px] flex relative rounded-2xl overflow-hidden mb-6`} style={{ background: `linear-gradient(to right, ${mainColor}, ${darkerColor})` }}>
-            <div className="flex items-center mx-14 gap-4">
-                <img src={selectedClub?.crest} alt="" className="w-[128px] h-[128px]" />
+        <div className={`w-full h-[200px] sm:h-[400px] flex relative rounded-2xl overflow-hidden mb-6`} style={{ background: `linear-gradient(to right, ${mainColor}, ${darkerColor})` }}>
+            <div className="flex items-center sm:mx-14 gap-4">
+                <img src={selectedClub?.crest} alt="" className="w-[50px] h-[50px] sm:w-[128px] sm:h-[128px]" />
                 <div className="text-white">
-                    <h1 className="text-6xl font-bold">{selectedClub?.shortName}</h1>
-                    <div className="flex mt-2">
+                    <h1 className="text-3xl sm:text-6xl font-bold">{selectedClub?.shortName}</h1>
+                    <div className="flex items-center mt-2 text-xs sm:text-[16px] ">
                         <span>Est: {selectedClub?.born}</span>
                         <Dot />
                         <span>{selectedClub?.stadium}</span>

@@ -13,19 +13,19 @@ const TeamFormation = ({ selectedMatch }: { selectedMatch: MatchDataType }) => {
 
     return (
         <div className="mt-2">
-            <h1 className="font-bold">Team Formation</h1>
+            <h1 className="font-bold dark:text-white">Team Formation</h1>
             <div className="mt-10">
                 <div className="flex justify-between items-center">
                     <div className="flex flex-col">
                         <ClubLogo src={home.crest} name={home.shortName} width="32px" height="32px" horizonal />
-                        <p className="text-right">{formationA}</p>
+                        <p className="text-right dark:text-white">{formationA}</p>
                     </div>
                     <div className="flex flex-col">
                         <ClubLogo src={away.crest} name={away.shortName} width="32px" height="32px" />
-                        <p className="text-left">{formationB}</p>
+                        <p className="text-left dark:text-white">{formationB}</p>
                     </div>
                 </div>
-                <div className="w-full h-[500px] relative rounded-2xl overflow-hidden">
+                <div className="w-full h-[300px] md:h-[500px] relative rounded-2xl overflow-hidden">
                     <div
                         className="absolute inset-0 z-0 bg-cover bg-center"
                         style={{ backgroundImage: `url(${"/Line.png"})` }}

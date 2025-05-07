@@ -17,22 +17,22 @@ export const linkMenuData = [
     {
         label: "Dashboard",
         link: "home",
-        icon: <LayoutDashboard size={24} style={{ color: "#5742A9" }} />,
+        icon: <LayoutDashboard size={24} className="text-[#5742A9] dark:text-[#F5C451]" />,
     },
     {
         label: "LiveFootBall",
         link: "live",
-        icon: <RadioTower size={24} style={{ color: "#5742A9" }} />,
+        icon: <RadioTower size={24} className="text-[#5742A9] dark:text-[#F5C451]" />,
     },
     {
         label: "Standings",
         link: "stadings",
-        icon: <Trophy size={24} style={{ color: "#5742A9" }} />,
+        icon: <Trophy size={24} className="text-[#5742A9] dark:text-[#F5C451]" />,
     },
     {
         label: "Highlights",
         link: "highlights",
-        icon: <TvMinimalPlay size={24} style={{ color: "#5742A9" }} />,
+        icon: <TvMinimalPlay size={24} className="text-[#5742A9] dark:text-[#F5C451]" />,
     }
 ];
 
@@ -143,6 +143,44 @@ export const player = {
     bruno: "/brunofe.png",
     kvaratskhelia: "/kvaratskhelia.png",
     lmartinez: "/l.martinez.png"
+}
+
+export const sidebarVariants = {
+    open: (height = 1000) => ({
+        clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+        transition: {
+            type: "spring",
+            stiffness: 20,
+            restDelta: 2,
+        },
+    }),
+    closed: {
+        clipPath: "circle(30px at 40px 40px)",
+        transition: {
+            delay: 0.2,
+            type: "spring",
+            stiffness: 400,
+            damping: 40,
+        },
+    },
+}
+
+export const contentVariants = {
+    open: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            delay: 0.2,
+            duration: 0.3,
+        },
+    },
+    closed: {
+        opacity: 0,
+        y: 20,
+        transition: {
+            duration: 0.2,
+        },
+    },
 }
 
 // CSS export

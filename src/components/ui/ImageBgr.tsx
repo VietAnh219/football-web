@@ -23,7 +23,7 @@ const ImageBgr = () => {
                 animate={{ x: "0%", opacity: 1 }}
                 exit={{ x: "-100%", opacity: 0 }}
                 transition={{ duration: 1 }}
-                className="absolute inset-0 z-0 bg-cover bg-center"
+                className="absolute inset-0 z-0 bg-cover bg-center h-[300px] sm:h-full"
                 style={{ backgroundImage: `url(${imagesBackground[index]})` }}
             />
         </AnimatePresence>

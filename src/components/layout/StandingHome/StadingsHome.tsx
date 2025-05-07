@@ -33,16 +33,16 @@ const StadingsHome = () => {
         <div className="mb-12">
             <div className={`flex items-center gap-1 mb-8 ${mt}`}>
                 🏆
-                <h1 className="text-xl font-semibold">Stadings</h1>
+                <h1 className="sm:text-xl font-semibold dark:text-white">Stadings</h1>
             </div>
             <div className="flex items-center justify-between">
                 <Select onValueChange={(value) => setLeague(value)}>
-                    <SelectTrigger className="w-[300px]">
+                    <SelectTrigger className="sm:w-[300px] dark:bg-[#1B1C21] dark:text-white">
                         <SelectValue placeholder="Select a league" />
                     </SelectTrigger>
-                    <SelectContent>
-                        <SelectGroup>
-                            <SelectLabel>League</SelectLabel>
+                    <SelectContent className="dark:bg-[#1B1C21]">
+                        <SelectGroup className="dark:text-white ">
+                            <SelectLabel className="dark:text-white">League</SelectLabel>
                             {linkLeagueData.map((link) => (
                                 <SelectItem value={link.link} key={link.link}>{link.icon} {link.label}</SelectItem>
                             ))}
@@ -78,37 +78,37 @@ const StadingsHome = () => {
                 }
 
             </div>
-            <div className="flex items-center gap-4 ">
+            <div className="flex flex-col items-start lg:flex-row lg:items-center gap-4 ">
                 {
                     league === "CL" ?
                         (
                             <>
                                 <div className="flex items-center gap-2">
                                     <div className="w-3 h-3 rounded-4xl bg-[#afd2f9]"></div>
-                                    <p>Qualification to 1/8 finals</p>
+                                    <p className="dark:text-white">Qualification to 1/8 finals</p>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <div className="w-3 h-3 rounded-4xl bg-[#ffc988]"></div>
-                                    <p>Qualification to 1/16 finals</p>
+                                    <p className="dark:text-white">Qualification to 1/16 finals</p>
                                 </div>
                             </>
                         ) : (
                             <>
                                 <div className="flex items-center gap-2">
                                     <div className="w-3 h-3 rounded-4xl bg-[#afd2f9]"></div>
-                                    <p>Champions League</p>
+                                    <p className="dark:text-white">Champions League</p>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <div className="w-3 h-3 rounded-4xl bg-[#ffc988]"></div>
-                                    <p>Europa League</p>
+                                    <p className="dark:text-white">Europa League</p>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <div className="w-3 h-3 rounded-4xl bg-[#a7e5ca]"></div>
-                                    <p>Europa Conference League</p>
+                                    <p className="dark:text-white">Europa Conference League</p>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <div className="w-3 h-3 rounded-4xl bg-[#f8b5c8]"></div>
-                                    <p>Relegation</p>
+                                    <p className="dark:text-white">Relegation</p>
                                 </div>
                             </>
                         )

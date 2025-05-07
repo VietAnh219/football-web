@@ -24,13 +24,11 @@ const News = () => {
     const endpoint = getNew(selected);
     const { data: data, isLoading } = useNews(endpoint);
 
-    console.log(data)
-
     return (
-        <div className="pt-12 pb-4">
+        <div className="pb-4">
             <div className="flex items-center gap-1 mb-8">
                 📰
-                <h1 className="text-xl font-semibold">All News and Transfer Today</h1>
+                <h1 className="text-xl font-semibold dark:text-white">All News and Transfer Today</h1>
             </div>
             <div className="w-full">
                 <div className="flex border-b border-gray-200">
@@ -38,13 +36,13 @@ const News = () => {
                         <div
                             key={tab}
                             onClick={() => setSelected(tab)}
-                            className={`relative px-4 py-2 cursor-pointer text-sm font-medium ${selected === tab ? "text-black" : "text-gray-600"} hover:text-black transition-all`}
+                            className={`relative px-4 py-2 cursor-pointer text-sm font-medium ${selected === tab ? "text-black dark:text-[white]" : "text-gray-600"} hover:text-black transition-all dark:hover:text-[white]`}
                         >
                             {tab}
                             {selected === tab && (
                                 <motion.div
                                     layoutId="underline"
-                                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#5742A9]"
+                                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#5742A9] dark:bg-[#F5C451]"
                                 />
                             )}
                         </div>

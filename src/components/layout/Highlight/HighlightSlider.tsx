@@ -23,9 +23,9 @@ const HighlightSlider = ({ highlight, topic }: { highlight: Highlight[]; topic: 
     }
 
     return (
-        <div className="pt-6">
-            <h1 className="font-semibold text-xl">{topic}</h1>
-            <div className="w-full h-[150px] my-6">
+        <div className="py-3">
+            <h1 className="font-semibold text-xl dark:text-white">{topic}</h1>
+            <div className="w-full h-[150px] my-3">
                 <Swiper
                     modules={[Navigation]}
                     navigation={{
@@ -34,9 +34,14 @@ const HighlightSlider = ({ highlight, topic }: { highlight: Highlight[]; topic: 
                     }}
                     spaceBetween={16}
                     slidesPerView={"auto"}
+                    className="highlights-sites-swiper"
                 >
                     {highlight.map((item) => (
-                        <SwiperSlide key={item.id} style={{ width: "270px", height: "200px" }}>
+                        <SwiperSlide
+                            key={item.id}
+                            style={{ width: "270px", height: "200px" }}
+                            className="top-[10px]"
+                        >
                             <div onClick={() => handleClick(item)}>
                                 <motion.div
                                     whileHover={{ scale: 1.05 }}
@@ -46,16 +51,16 @@ const HighlightSlider = ({ highlight, topic }: { highlight: Highlight[]; topic: 
                                     <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-2 rounded-b-xl">
                                         <span className="absolute bottom-2 right-2 text-white text-xs bg-black/60 px-1 rounded">{item.time}</span>
                                     </div>
-                                    <p className="line-clamp-2 text-sm">{item.title}</p>
+                                    <p className="line-clamp-2 text-sm dark:text-white">{item.title}</p>
                                 </motion.div>
                             </div>
                         </SwiperSlide>
                     ))}
-                    <div className="custom-prev cursor-pointer absolute left-1 top-20 z-20 -translate-y-1/2 bg-black/60 text-white p-2 rounded-full hover:bg-black transition">
+                    <div className="custom-prev cursor-pointer absolute left-1 top-22 z-20 -translate-y-1/2 bg-black/60 text-white p-2 rounded-full hover:bg-black transition">
                         <ChevronLeft className="w-5 h-5 text-white" />
                     </div>
 
-                    <div className="custom-next cursor-pointer absolute -right-1 top-20 z-20 -translate-y-1/2 bg-black/60 text-white p-2 rounded-full hover:bg-black transition">
+                    <div className="custom-next cursor-pointer absolute -right-1 top-22 z-20 -translate-y-1/2 bg-black/60 text-white p-2 rounded-full hover:bg-black transition">
                         <ChevronRight className="w-5 h-5 text-white" />
                     </div>
                 </Swiper>

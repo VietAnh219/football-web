@@ -9,8 +9,8 @@ const FootballMatch = () => {
     return (
         <div className="pb-4">
             <div className="flex items-center gap-1 mb-8">
-                <IoIosFootball size="20px" />
-                <h1 className="text-xl font-semibold">Football Match</h1>
+                <IoIosFootball size="20px" className="dark:text-[white]" />
+                <h1 className="xl:text-xl font-semibold dark:text-[white]">Football Match</h1>
             </div>
             <TabNav tabs={filterMatch} />
         </div>

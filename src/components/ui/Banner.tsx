@@ -1,14 +1,31 @@
 import { imagesBanner, imagesLogoL1, imagesLogoLiga, player } from "@/constants"
 import CountdownTimer from "./CountTime"
 import ClubLogo from "./ClubName"
+import { useEffect, useState } from "react";
 
 const Banner = () => {
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 640);
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    const logoSize = isMobile ? "30px" : "50px";
+
     return (
-        <div className="w-full h-full relative rounded-2xl overflow-hidden">
-            <div className="absolute inset-0 z-0 bg-cover bg-center" style={{ backgroundImage: `url(${imagesBanner.img})` }} />
-            <div className="relative w-full h-full flex flex-col items-center">
+        <div className="w-full h-[300px] sm:h-full relative rounded-2xl overflow-hidden">
+            <div className="absolute inset-0 z-0 bg-cover bg-center h-[300px] sm:h-full rounded-2xl" style={{ backgroundImage: `url(${imagesBanner.img})` }} />
+            <div className="relative w-full sm:h-full flex flex-col items-center">
                 <div className="mt-5 flex gap-2">
-                    <img src={imagesBanner.icon} alt="C1" width="72px" height="72px" />
+                    <img src={imagesBanner.icon} alt="C1" className="w-[40px] h-[40px] sm:w-[72px] sm:h-[72px]" />
                     <div className="border-white border-[1px]"></div>
                     <h1 className="text-white flex flex-col items-center justify-center">
                         <span className="uppercase -tracking-normal text-[12px]">Road to</span>
@@ -17,11 +34,11 @@ const Banner = () => {
                 </div>
                 <div className="text-center">
                     <div className="text-white font-medium flex items-center gap-1 text-2xl">
-                        <ClubLogo src={imagesLogoL1.psg} name="Paris SG" width="50px" height="50px" horizonal />
+                        <ClubLogo src={imagesLogoL1.psg} name="Paris SG" width={logoSize} height={logoSize} horizonal />
                         <p className="text-sm text-yellow-400">vs</p>
-                        <ClubLogo src={imagesLogoLiga.barc} name="Barcelona" width="50px" height="50px" />
+                        <ClubLogo src={imagesLogoLiga.barc} name="Barcelona" width={logoSize} height={logoSize} />
                     </div>
-                    <div className="text-white">
+                    <div className="text-white text-xs sm:text-2xl">
                         <p>Monday, 2 June 2025</p>
                     </div>
                 </div>
@@ -31,14 +48,14 @@ const Banner = () => {
                 <img
                     src={player.dembele}
                     alt=""
-                    className="w-[400px] max-w-none object-contain  scale-120 -translate-x-100 translate-y-80"
+                    className="w-[200px] h-[300px] lg:w-[400px] lg:h-fit max-w-none object-contain scale-180 lg:scale-120 -translate-x-40 translate-y-20 lg:-translate-x-70 xl:-translate-x-100 lg:translate-y-80"
                 />
             </div>
             <div className="absolute inset-0 z-10 flex justify-center items-end pointer-events-none">
                 <img
                     src={player.yamal}
                     alt=""
-                    className="w-[400px] max-w-none object-contain translate-x-85 translate-y-30"
+                    className="w-[150px] h-[300px] lg:w-[400px] lg:h-fit max-w-none object-contain scale-160 lg:scale-none translate-x-35 translate-y-15 lg:translate-x-70 xl:translate-x-85 lg:translate-y-30"
                 />
             </div>
         </div>

@@ -48,7 +48,7 @@ const HightLights = () => {
     return (
         <div className="flex flex-col h-full">
             <BannerHightLight />
-            <div className="bg-white rounded-2xl pl-6 py-8 space-y-8">
+            <div className="bg-white dark:bg-[#1B1C21] rounded-2xl pl-6 py-8 space-y-8">
                 {isLoading ? (
                     Array.from({ length: 5 }).map((_, idx) => (
                         <div key={idx} className="space-y-2">

@@ -58,25 +58,33 @@ const Login = () => {
             <div className="flex items-center justify-center relative w-full overflow-hidden">
                 <ImageBgr />
                 <div className="absolute inset-0 z-[1] bg-[#00000040] backdrop-blur-[1px]"></div>
-                <div className="flex h-screen w-[940px] pt-[132px]">
+                <div className=" h-screen flex flex-col gap-3 items-center justify-end w-[600px] md:flex md:flex-row md:items-start md:w-[940px] md:pt-[132px] md:px-10 md:gap-4">
                     <div className="w-1/2 relative bg-cover bg-center">
-                        <div className="relative z-10 h-full py-[80px] text-white">
-                            <div className="flex items-center mb-[100px] gap-3">
+                        <div className="relative z-10 h-full md:py-[80px] text-white hidden md:block">
+                            <div className="flex items-center md:mb-[100px] md:gap-3">
                                 <div className="rounded-full w-[64px] h-[64px] flex items-center justify-center">
                                     <img src={iconLogo} alt="Logo" className="w-[60px] h-[60px]" />
                                 </div>
-                                <h1 className="text-2xl font-bold">OneSport</h1>
+                                <h1 className="text-xl font-bold md:text-2xl">OneSport</h1>
                             </div>
                             <h2 className="text-4xl font-bold mb-4">Watch top football teams...</h2>
-                            <p className="text-gray-200 max-w-md">
+                            <p className="text-gray-200 max-w-md md:text-[14px]">
                                 Stay updated with live scores, match highlights, and breaking football news — all in one place, designed for true fans of the game.
                             </p>
                         </div>
                     </div>
 
-                    <div className="w-1/2 pt-[60px] bg-white z-10 rounded-t-3xl">
+                    <div className="pt-[60px] h-[650px] w-screen bg-white z-20 relative rounded-t-3xl md:rounded-3xl md:w-1/2 md:h-200 lg:rounded-t-3xl">
                         <div className="w-full px-8 rounded-xl">
-                            <p className="text-[12px] text-gray-500 uppercase">WELCOME BACK</p>
+                            <div className="text-[12px] text-gray-500 uppercase flex items-center gap-1">
+                                WELCOME BACK
+                                <div className="flex items-center gap-1 md:hidden">
+                                    <h1 className="">OneSport</h1>
+                                    <div className="rounded-full w-[20px] h-[20px] flex items-center justify-center">
+                                        <img src={iconLogo} alt="Logo" className="w-[20px] h-[20px]" />
+                                    </div>
+                                </div>
+                            </div>
                             <h2 className="text-2xl font-bold mt-2 mb-6">Log In to your Account</h2>
 
                             <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>

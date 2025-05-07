@@ -19,7 +19,7 @@ const SliderHome = ({
             <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-2">
                     <span>{icon}</span>
-                    <h2 className="font-semibold text-xl">{title}</h2>
+                    <h2 className="font-semibold text-xl dark:text-white">{title}</h2>
                 </div>
             </div>
 

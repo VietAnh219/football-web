@@ -12,9 +12,9 @@ const ShoppingSlider = ({ club }: { club: { id: number, shortName: string; crest
             <Tooltip>
                 <TooltipTrigger asChild>
                     <div
-                        className={`w-full h-[350px] flex flex-col items-start justify-center gap-4 rounded-2xl overflow-hidden shrink-0 border-2 cursor-pointer`}
+                        className={`w-full h-[350px] flex flex-col items-start justify-center gap-4 dark:border-[#F5C451] rounded-2xl overflow-hidden shrink-0 border-2 cursor-pointer`}
                     >
-                        <div className="w-full h-full flex justify-center bg-[#F6F6F6]">
+                        <div className="w-full h-full flex justify-center bg-[#F6F6F6] dark:bg-[#1B1C21] ">
                             <motion.img
                                 src={club.shirt}
                                 alt={club.shortName}

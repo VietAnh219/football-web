@@ -49,20 +49,20 @@ export function ChartPerform({ selectedMatch }: { selectedMatch: MatchDataType }
     }, {} as ChartConfig)
 
     return (
-        <Card className="mb-10">
+        <Card className="mb-10 dark:bg-[#1B1C21]">
             <CardHeader className="flex flex-col gap-2 border-b py-5 sm:flex-row sm:items-center sm:justify-between">
                 <div className="grid gap-1 text-center sm:text-left">
-                    <CardTitle>Match Performance - Interactive</CardTitle>
-                    <CardDescription>Showing stats by minute (0 → 90')</CardDescription>
+                    <CardTitle className="dark:text-white">Match Performance - Interactive</CardTitle>
+                    <CardDescription className="dark:text-white">Showing stats by minute (0 → 90')</CardDescription>
                 </div>
                 <Select value={statType} onValueChange={(val) => setStatType(val as ChartType)}>
-                    <SelectTrigger className="w-[160px] rounded-lg">
+                    <SelectTrigger className="w-[160px] rounded-lg dark:bg-[#1B1C21] dark:text-white">
                         <SelectValue placeholder="Select stat" />
                     </SelectTrigger>
-                    <SelectContent className="rounded-xl">
-                        <SelectItem value="shoot">Shoot</SelectItem>
-                        <SelectItem value="ball_possession">Ball Possession</SelectItem>
-                        <SelectItem value="corner">Corner</SelectItem>
+                    <SelectContent className="rounded-xl dark:bg-[#1B1C21]">
+                        <SelectItem value="shoot" className="dark:text-white">Shoot</SelectItem>
+                        <SelectItem value="ball_possession" className="dark:text-white">Ball Possession</SelectItem>
+                        <SelectItem value="corner" className="dark:text-white">Corner</SelectItem>
                     </SelectContent>
                 </Select>
             </CardHeader>

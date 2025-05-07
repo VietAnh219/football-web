@@ -4,7 +4,7 @@ import { ChevronUp } from "lucide-react"
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const LeagueSide = () => {
+const LeagueSide = ({ toggleIsOpen }: { toggleIsOpen?: () => void }) => {
     const [isOpen, setIsOpen] = useState(true);
 
     const toggleOpen = () => setIsOpen((prev) => !prev);
@@ -33,7 +33,7 @@ const LeagueSide = () => {
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden mt-4"
                     >
-                        <NavLink linkData={linkLeagueData} />
+                        <NavLink linkData={linkLeagueData} onLinkClick={toggleIsOpen} />
                     </motion.div>
                 )}
             </AnimatePresence>

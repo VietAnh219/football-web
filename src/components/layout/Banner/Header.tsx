@@ -3,7 +3,7 @@ import LiveBanner from "@/components/ui/LiveBanner"
 
 const Header = () => {
     return (
-        <div className="flex items-center gap-6 h-[400px] mb-6">
+        <div className="mb-4 sm:flex sm:items-center sm:gap-6 sm:h-[400px] sm:mb-6">
             <Banner />
             <LiveBanner />
         </div>

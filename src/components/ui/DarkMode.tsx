@@ -1,19 +1,15 @@
 import { iconStyle } from '@/constants';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Moon, Sun } from 'lucide-react';
-import { useEffect, useState } from 'react'
+import { useThemeStore } from '../hooks/useDarkMode';
+import { useEffect } from 'react';
 
 const DarkMode = () => {
-    const [theme, setTheme] = useState(() => {
-        return localStorage.getItem("theme") || "light";
-    });
+    const { theme, toggleTheme } = useThemeStore();
 
     useEffect(() => {
         document.documentElement.setAttribute("data-theme", theme);
-        localStorage.setItem("theme", theme);
     }, [theme]);
-
-    const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
 
     return (
         <button onClick={toggleTheme} className="transition-colors duration-300">

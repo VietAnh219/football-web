@@ -9,6 +9,7 @@ const Input = () => {
     const [keyword, setKeyWord] = useState("");
     const navigate = useNavigate();
     const inputRef = useRef<HTMLInputElement>(null);
+    const isMobile = window.innerWidth < 640;
 
     const debouncedSearch: DebouncedFunc<(val: string) => void> = useMemo(
         () => debounce((val: string) => {
@@ -63,7 +64,7 @@ const Input = () => {
                 onKeyDown={handleKeyDown}
                 initial={false}
                 animate={{
-                    width: isFocused ? 600 : 200,
+                    width: isFocused ? (isMobile ? 200 : 500) : 200,
                     paddingLeft: isFocused ? 36 : 36,
                     opacity: isFocused ? 1 : 0.5,
                 }}
@@ -72,9 +73,6 @@ const Input = () => {
                     ease: "easeInOut",
                 }}
                 className="h-full rounded-full border border-gray-300 focus:outline-none pr-4 transition-colors bg-white shadow-sm overflow-hidden"
-                style={{
-                    width: isFocused ? "200px" : "40px",
-                }}
             />
         </div>
     )

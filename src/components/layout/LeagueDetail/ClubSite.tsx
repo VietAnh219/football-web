@@ -4,7 +4,7 @@ import { useClubDetailStore } from "@/store/useClubDetailStore";
 import { Club } from "@/types/club";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom"
-import { Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const ClubSite = ({ league }: { league: string }) => {
@@ -22,7 +22,7 @@ const ClubSite = ({ league }: { league: string }) => {
 
     return (
         <div>
-            <h1 className="text-2xl font-bold text-[#37003c] mb-2">Club sites</h1>
+            <h1 className="text-2xl font-bold text-[#37003c] mb-2 dark:text-white">Club sites</h1>
 
             {isLoading ? (
                 <div className={`flex gap-4 ${isCL ? "overflow-x-auto" : "flex-wrap"}`}>
@@ -37,14 +37,17 @@ const ClubSite = ({ league }: { league: string }) => {
                 </div>
             ) : isCL ? (
                 <Swiper
-                    modules={[Navigation]}
+                    modules={[Navigation, Autoplay]}
                     navigation={{
                         nextEl: ".custom-next",
                         prevEl: ".custom-prev"
                     }}
                     spaceBetween={16}
                     slidesPerView={"auto"}
-                    className="!pb-4 h-[100px] club-sites-swiper"
+                    autoplay={{ delay: 2000, disableOnInteraction: false }}
+                    loop={true}
+                    speed={800}
+                    className="!pb-4 h-[100px] club-sites-swiper transition-all ease-in-out"
                 >
                     {data?.clubs.map((club: Club) => (
                         <SwiperSlide
@@ -66,31 +69,61 @@ const ClubSite = ({ league }: { league: string }) => {
                             </div>
                         </SwiperSlide>
                     ))}
-                    <div className="custom-prev cursor-pointer absolute top-1/2 z-20 -translate-y-1/3  -translate-x-1/3 text-white p-1 rounded-full hover:bg-white transition">
-                        <ChevronLeft className="w-5 h-5 text-[#37003c]" />
+                    <div className="custom-prev cursor-pointer absolute top-1/2 z-20 -translate-y-1/3  -translate-x-1/3 bg-black/60 text-white p-2 rounded-full hover:bg-black transition">
+                        <ChevronLeft className="w-5 h-5 text-[#ffff]" />
                     </div>
-                    <div className="custom-next cursor-pointer absolute -right-1 top-1/2 z-20 -translate-y-1/2  text-white p-1 rounded-full hover:bg-white transition">
-                        <ChevronRight className="w-5 h-5 text-[#37003c]" />
+                    <div className="custom-next cursor-pointer absolute -right-1 top-1/2 z-20 -translate-y-1/2  bg-black/60 text-white p-2 rounded-full hover:bg-black transition">
+                        <ChevronRight className="w-5 h-5 text-[#ffff]" />
                     </div>
                 </Swiper>
             ) : (
-                <div className="flex gap-4">
-                    {data?.clubs.map((club: Club) => (
-                        <div
-                            key={club.id}
-                            onClick={() => handleClick(club.id, club)}
-                            className="cursor-pointer transform transition duration-200 ease-in-out hover:scale-110"
+                <>
+                    <div className="hidden sm:flex gap-4">
+                        {data?.clubs.map((club: Club) => (
+                            <div
+                                key={club.id}
+                                onClick={() => handleClick(club.id, club)}
+                                className="cursor-pointer transform transition duration-200 ease-in-out hover:scale-110"
+                            >
+                                <img
+                                    src={club.crest}
+                                    alt={club.name}
+                                    height={100}
+                                    width={100}
+                                    className="object-cover"
+                                />
+                            </div>
+                        ))}
+                    </div>
+                    <div className="flex sm:hidden">
+                        <Swiper
+                            spaceBetween={16}
+                            slidesPerView={8}
+                            autoplay={{ delay: 2500, disableOnInteraction: false }}
+                            loop={data?.clubs.length > 20}
+                            speed={600}
+                            modules={[Autoplay]}
                         >
-                            <img
-                                src={club.crest}
-                                alt={club.name}
-                                height={100}
-                                width={100}
-                                className="object-cover"
-                            />
-                        </div>
-                    ))}
-                </div>
+                            {data?.clubs.map((club: Club) => (
+                                <SwiperSlide key={club.id}>
+                                    <div
+                                        onClick={() => handleClick(club.id, club)}
+                                        className="cursor-pointer transform transition duration-200 ease-in-out hover:scale-110"
+                                    >
+                                        <img
+                                            src={club.crest}
+                                            alt={club.name}
+                                            height={50}
+                                            width={50}
+                                            className="object-cover"
+                                        />
+                                    </div>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </div>
+
+                </>
             )}
         </div>
     );

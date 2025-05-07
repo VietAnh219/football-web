@@ -15,8 +15,8 @@ const ClubStatCard = ({ title, clubs }: TopClubCardProps) => {
 
     return (
         <div >
-            <h2 className="text-lg text-[#37003c] font-extrabold my-2">{title}</h2>
-            <div className="text-white rounded-lg overflow-hidden w-full max-w-sm shadow-md" >
+            <h2 className="text-lg text-[#37003c] font-extrabold my-2 dark:text-white">{title}</h2>
+            <div className="text-white rounded-lg overflow-hidden w-full max-w-sm shadow-md dark:border-[#ebe5eb] border-1" >
                 <div className="flex justify-between items-center p-4 rounded-t-lg" style={{ background: `linear-gradient(to right, ${mainColor}, ${darkerColor})` }}>
                     <div>
                         <p className="text-sm text-white font-semibold">{topClub.rank}</p>
@@ -35,14 +35,14 @@ const ClubStatCard = ({ title, clubs }: TopClubCardProps) => {
                     {restClubs.map((club, index) => (
                         <li key={index} className="flex justify-between items-center px-4 py-2 text-[#37003c] font-bold transform transition duration-300 ease-in-out hover:scale-105 cursor-default">
                             <div className="flex items-center gap-2">
-                                <span className="w-6 ">{club.rank}</span>
+                                <span className="w-6 dark:text-white">{club.rank}</span>
                                 <img src={club.teamLogo} alt={club.team} className="w-5 h-5" />
                                 <div>
-                                    <p className="text-sm">{club.team}</p>
-                                    <p className="text-xs font-medium">{club.stadium}</p>
+                                    <p className="text-sm dark:text-white">{club.team}</p>
+                                    <p className="text-xs font-medium dark:text-white">{club.stadium}</p>
                                 </div>
                             </div>
-                            <span className="text-sm font-bold">{club.goals || club.tackles || club.won || club.lost}</span>
+                            <span className="text-sm font-bold dark:text-white">{club.goals || club.tackles || club.won || club.lost}</span>
                         </li>
                     ))}
                 </ul>

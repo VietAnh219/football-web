@@ -7,17 +7,12 @@ import FadeInSection from "@/components/ui/FadeInSection";
 import { SkeletonShirt, SkeletonClubLogo } from "@/components/ui/AllSkeleton";
 import SliderHome from "@/components/ui/SliderHome"
 import { useLeagueStore } from "@/store/useSeasonStore";
-import { Divider } from "@mui/material"
 import { motion } from "framer-motion";
-import { useAuthStore } from "@/store/useAuthStore";
+import Line from "@/components/ui/Line";
 
 const Home = () => {
     const selectedLeague = useLeagueStore((state) => state.selectedLeague);
     const { data: league, isLoading } = useClubs(selectedLeague ?? "PL");
-    const { user } = useAuthStore();
-
-    console.log(user?.role)
-
 
     return (
         <motion.div
@@ -27,31 +22,31 @@ const Home = () => {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className='h-full'>
             <Header />
-            <div className="bg-white rounded-2xl pl-6 py-8 space-y-8">
+            <div className="bg-white rounded-2xl pl-6 py-8 space-y-8 dark:bg-[#1B1C21]">
 
                 <FadeInSection>
                     <FootballMatch />
                 </FadeInSection>
 
-                <Divider className="h-0.5" />
+                <Line />
 
                 <FadeInSection>
                     <StadingsHome />
                 </FadeInSection>
 
-                <Divider className="h-0.5" />
+                <Line />
 
                 <FadeInSection>
                     {isLoading ? <SkeletonClubLogo /> : <SliderHome title="Follow Club" icon="🎮" clubs={league?.clubs} />}
                 </FadeInSection>
 
-                <Divider className="h-0.5" />
+                <Line />
 
                 <FadeInSection>
                     {isLoading ? <SkeletonShirt /> : <SliderHome title="Kit" icon="👕" clubs={league?.clubs} />}
                 </FadeInSection>
 
-                <Divider className="h-0.5" />
+                <Line />
 
                 <FadeInSection>
                     <News />

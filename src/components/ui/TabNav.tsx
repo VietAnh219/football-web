@@ -37,13 +37,13 @@ const TabNav = ({ tabs }: { tabs: string[] }) => {
                     <div
                         key={tab}
                         onClick={() => setSelected(tab)}
-                        className={`relative px-4 py-2 cursor-pointer text-sm font-medium ${selected === tab ? "text-black" : "text-gray-600"} hover:text-black transition-all`}
+                        className={`relative px-4 py-2 cursor-pointer text-sm font-medium ${selected === tab ? "text-black dark:text-[white]" : "text-gray-600"} hover:text-black transition-all dark:hover:text-[white]`}
                     >
                         {tab}
                         {selected === tab && (
                             <motion.div
                                 layoutId="underline"
-                                className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#5742A9]"
+                                className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#5742A9] dark:bg-[#F5C451]"
                             />
                         )}
                     </div>

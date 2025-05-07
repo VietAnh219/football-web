@@ -1,5 +1,3 @@
-import { ShoppingBasket, Bell } from "lucide-react"
-import { iconStyle } from "@/constants"
 import DarkMode from "./DarkMode"
 import { useAuthStore } from "@/store/useAuthStore"
 import { useNavigate } from "react-router-dom"
@@ -25,14 +23,11 @@ const UseAvatar = () => {
         }
     }
     return (
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-3 md:gap-6">
             <UpgradePremium />
             <div className="flex items-center gap-4">
-                <ShoppingBasket className={iconStyle} />
-                <Bell className={iconStyle} />
                 <DarkMode />
             </div>
-
             <Menu as='div' className="relative inline-block text-left">
                 <div>
                     <MenuButton className='flex items-center gap-x-2 cursor-pointer'>
@@ -55,7 +50,7 @@ const UseAvatar = () => {
                     leaveFrom='transform opacity-100 scale-100'
                     leaveTo='transform opacity-0 scale-95'
                 >
-                    <MenuItems className='absolute right-0 mt-2 w-56 origin-top-right divide-gray-100 rounded-md bg-white shadow-2xl ring-1 ring-black/5 focus:outline-none'>
+                    <MenuItems className='absolute right-0 mt-2 w-56 origin-top-right z-10 divide-gray-100 rounded-md bg-white shadow-2xl ring-1 ring-black/5 focus:outline-none'>
                         <div className='!px-[8px] !py-[8px]'>
                             <MenuItem>
                                 {() => (

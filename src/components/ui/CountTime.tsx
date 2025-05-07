@@ -50,11 +50,11 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
             ].map((item, index, arr) => (
                 <div key={index} className="space-y-1 ">
                     <div className="flex items-center justify-between">
-                        <div className="text-xl min-w-[40px]">
+                        <div className="sm:text-xl min-w-[40px]">
                             {formatTime(item.value)}
                         </div>
                         {index < arr.length - 1 && (
-                            <div className="text-xl font-bold text-white ">:</div>
+                            <div className="sm:text-xl font-bold text-white ">:</div>
                         )}
                     </div>
                     <div className="text-xs text-gray-300 text-center">{item.label}</div>
