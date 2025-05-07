@@ -20,7 +20,6 @@ const Search = () => {
     if (isLoadingClubs) {
         return <SkeletonClubLogo />;
     }
-    // console.log(allClubs)
 
 
     const filteredHighlights = selectedTotalHighLight?.filter(item =>
@@ -35,8 +34,8 @@ const Search = () => {
 
     return (
         <div className='h-full w-full'>
-            <div className="bg-white rounded-2xl px-6 py-8 space-y-8">
-                <h1 className="text-xl font-semibold mb-4">Search results for: <span className="text-red-600">"{keyword}"</span></h1>
+            <div className="bg-white dark:bg-[#1B1C21] rounded-2xl px-6 py-8 space-y-8">
+                <h1 className="text-xl font-semibold mb-4 dark:text-white">Search results for: <span className="text-red-600">"{keyword}"</span></h1>
 
                 {!hasResults && (
                     <div className="text-center text-gray-500 py-8">
@@ -45,7 +44,7 @@ const Search = () => {
                 )}
 
                 <div>
-                    <h2 className="text-2xl font-semibold mb-4">Clubs ({filteredClubs.length})</h2>
+                    <h2 className="text-2xl font-semibold mb-4 dark:text-white">Clubs ({filteredClubs.length})</h2>
                     {filteredClubs.length > 0 ? (
                         <div className="flex gap-4">
                             <ClubSearch filteredClubs={filteredClubs} />
@@ -65,7 +64,7 @@ const Search = () => {
                 </div>
 
                 <div>
-                    <h2 className="text-2xl font-semibold mb-4">Highlights ({filteredHighlights.length})</h2>
+                    <h2 className="text-2xl font-semibold mb-4 dark:text-white">Highlights ({filteredHighlights.length})</h2>
                     {filteredHighlights.length > 0 ? (
                         <HighlightSlider highlight={filteredHighlights} topic="Search results" />
                     ) : (
