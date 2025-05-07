@@ -60,7 +60,7 @@ const UpgradePremium = () => {
             {user?.role !== "premium" && (
                 <Dialog>
                     <DialogTrigger asChild >
-                        <Button variant="default">Go Premium</Button>
+                        <Button variant="default" className="dark:bg-[#F5C451] dark:hover:bg-[#FFD369] transition-colors duration-200">Go Premium</Button>
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-[425px] bg-[url('/premium.jpg')] bg-cover bg-center">
                         <DialogHeader className="items-start">

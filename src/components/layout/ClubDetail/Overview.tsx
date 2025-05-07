@@ -14,7 +14,7 @@ const Overview = () => {
     const socialYt = getAbsoluteUrl(selectedClub?.social?.youtube);
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-3 text-[#37003c] dark:text-white gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 text-[#37003c] dark:text-white transition-colors duration-300 gap-8">
             <div className="">
                 <div>
                     <h1 className="text-[16px] font-bold mb-4">Visit {selectedClub?.shortName} Website</h1>

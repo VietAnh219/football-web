@@ -9,6 +9,7 @@ import {
 } from "./dialog";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { formatUTCDate } from "../utils/formatUTCDate";
 
@@ -24,13 +25,19 @@ const Newpaper = ({ newspaper }: { newspaper: News[] }) => {
                     prevEl: ".custom-prev"
                 }}
                 modules={[Navigation]}
-                className="mySwiper"
+                className="news-sites-swiper"
             >
                 {newspaper.map((item, index) => (
-                    <SwiperSlide key={index} style={{ width: "250px" }}>
+                    <SwiperSlide
+                        key={index} style={{ width: "250px" }}
+                        className="top-[10px]"
+                    >
                         <Dialog>
                             <DialogTrigger asChild>
-                                <div className="cursor-pointer text-left border-1 h-[300px] rounded-md border-[#e1dfdf]">
+                                <motion.div
+                                    whileHover={{ scale: 1.05 }}
+                                    className="cursor-pointer text-left border-1 h-[300px] rounded-md border-[#e1dfdf]"
+                                >
                                     <div>
                                         <img src={item.img} alt="news" className="w-full h-[140px] object-cover rounded-t-md" />
                                     </div>
@@ -43,7 +50,7 @@ const Newpaper = ({ newspaper }: { newspaper: News[] }) => {
                                         </p>
                                         <p className="truncate text-[14px] dark:text-[#A4A4A4]">{item.desc}</p>
                                     </div>
-                                </div>
+                                </motion.div>
                             </DialogTrigger>
                             <DialogContent className="!max-w-[600px] p-8" aria-describedby={undefined}>
                                 <div className="w-full rounded-2xl overflow-hidden">

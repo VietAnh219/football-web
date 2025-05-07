@@ -24,7 +24,7 @@ const ClubSlider = ({ club }: { club: Club }) => {
                 <TooltipTrigger asChild>
                     <div
                         onClick={handleClick}
-                        className="w-[124px] h-[124px] rounded-full bg-gray-100 dark:bg-[#212227] dark:border-[#F5C451] flex items-center justify-center shrink-0 border-2 cursor-pointer"
+                        className="w-[124px] h-[124px] rounded-full bg-gray-100 transition-colors duration-300 dark:bg-[#212227] dark:border-[#F5C451] flex items-center justify-center shrink-0 border-2 cursor-pointer"
                     >
                         <img
                             src={club.crest}

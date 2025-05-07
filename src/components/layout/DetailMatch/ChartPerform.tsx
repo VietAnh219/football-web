@@ -49,7 +49,7 @@ export function ChartPerform({ selectedMatch }: { selectedMatch: MatchDataType }
     }, {} as ChartConfig)
 
     return (
-        <Card className="mb-10 dark:bg-[#1B1C21]">
+        <Card className="mb-10 dark:bg-[#1B1C21] transition-colors duration-300">
             <CardHeader className="flex flex-col gap-2 border-b py-5 sm:flex-row sm:items-center sm:justify-between">
                 <div className="grid gap-1 text-center sm:text-left">
                     <CardTitle className="dark:text-white">Match Performance - Interactive</CardTitle>

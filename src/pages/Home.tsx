@@ -22,7 +22,7 @@ const Home = () => {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className='h-full'>
             <Header />
-            <div className="bg-white rounded-2xl pl-6 py-8 space-y-8 dark:bg-[#1B1C21]">
+            <div className="bg-white rounded-2xl pl-6 py-8 space-y-8 dark:bg-[#1B1C21] transition-colors duration-300">
 
                 <FadeInSection>
                     <FootballMatch />

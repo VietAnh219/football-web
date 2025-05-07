@@ -17,7 +17,7 @@ const Layout = () => {
             <div className="xl:hidden">
                 <SidebarMotion isOpen={isOpen} toggleOpen={() => setIsOpen(!isOpen)} />
             </div>
-            <div className="flex-1 overflow-y-auto scrollbar-hidden dark:bg-[#17181C]">
+            <div className="flex-1 overflow-y-auto scrollbar-hidden dark:bg-[#17181C] transition-colors duration-300">
                 <Navbar />
                 <div className={`md:p-6 ${darkMode}`}>
                     <Outlet />

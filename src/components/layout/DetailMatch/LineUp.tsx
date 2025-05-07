@@ -6,7 +6,7 @@ const LineUp = ({ selectedMatch }: { selectedMatch: MatchDataType }) => {
 
     return (
         <>
-            <h1 className="text-center pb-6 font-bold dark:text-white">Team Line Up</h1>
+            <h1 className="text-center pb-6 font-bold dark:text-white transition-colors duration-300">Team Line Up</h1>
             <div className="grid grid-cols-2 gap-6 mt-4">
                 <div className="flex flex-col items-start w-full">
                     <div className="flex items-center gap-2 mb-4">

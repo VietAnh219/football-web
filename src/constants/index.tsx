@@ -100,6 +100,8 @@ export const tabsNew = ["All News", "Hot News", "Transfer"]
 
 export const tabsClub = ["Overview", "Squad"]
 
+export const avartarDefault = "https://images.unsplash.com/photo-1660304755869-325c2ff6f02d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fG1lc3NpfGVufDB8fDB8fHww"
+
 export const imagesBackground = [
     "/imgBgr1.jpg",
     "/imgBgr2.jpg",

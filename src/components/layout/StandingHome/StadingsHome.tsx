@@ -37,12 +37,12 @@ const StadingsHome = () => {
             </div>
             <div className="flex items-center justify-between">
                 <Select onValueChange={(value) => setLeague(value)}>
-                    <SelectTrigger className="sm:w-[300px] dark:bg-[#1B1C21] dark:text-white">
+                    <SelectTrigger className="sm:w-[300px] dark:bg-[#1B1C21] dark:text-white transition-colors duration-300">
                         <SelectValue placeholder="Select a league" />
                     </SelectTrigger>
-                    <SelectContent className="dark:bg-[#1B1C21]">
-                        <SelectGroup className="dark:text-white ">
-                            <SelectLabel className="dark:text-white">League</SelectLabel>
+                    <SelectContent className="dark:bg-[#1B1C21] transition-colors duration-300">
+                        <SelectGroup className="dark:text-white transition-colors duration-300">
+                            <SelectLabel className="dark:text-white transition-colors duration-300">League</SelectLabel>
                             {linkLeagueData.map((link) => (
                                 <SelectItem value={link.link} key={link.link}>{link.icon} {link.label}</SelectItem>
                             ))}

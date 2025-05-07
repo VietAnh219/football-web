@@ -10,7 +10,7 @@ const ScoreBoard = ({ selectedMatch, status }: { selectedMatch: MatchDataType, s
     const awayGoal = score?.goal.away;
 
     return (
-        <div className="bg-gradient-to-r from-[#ececec] to-[#fafafa] dark:from-[#1B1C21] dark:to-[#2A2A2A] rounded-xl shadow-lg h-[250px] relative overflow-hidden">
+        <div className="bg-gradient-to-r from-[#ececec] to-[#fafafa] dark:from-[#1B1C21] dark:to-[#2A2A2A] transition-colors duration-300 rounded-xl shadow-lg h-[250px] relative overflow-hidden">
             <div className="absolute inset-0 z-[1] flex justify-between items-center pointer-events-none">
                 <img src={home.crest} alt="" className="w-[100px] sm:w-[300px] opacity-15" />
                 <img src={away.crest} alt="" className="w-[100px] sm:w-[300px] opacity-15" />

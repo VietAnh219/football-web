@@ -112,6 +112,10 @@
   height: 220px;
 }
 
+.news-sites-swiper .swiper-wrapper {
+  height: 320px;
+}
+
 @keyframes ringA {
   from,
   4% {

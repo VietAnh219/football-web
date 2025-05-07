@@ -10,7 +10,7 @@ const Player = ({ title, players }: SquadSection) => {
 
     return (
         <div className='mb-6'>
-            <h1 className="pb-[10px] text-2xl sm:text-3xl lg:text-4xl font-bold dark:text-white">{title}</h1>
+            <h1 className="pb-[10px] text-2xl sm:text-3xl lg:text-4xl font-bold dark:text-white transition-colors duration-300">{title}</h1>
             <div>
                 <Divider className="h-0.5" />
             </div>

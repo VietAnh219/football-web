@@ -7,11 +7,14 @@ import { IoLogOutOutline } from "react-icons/io5";
 import { Fragment } from "react/jsx-runtime"
 import toast from "react-hot-toast"
 import UpgradePremium from "../layout/UpgradePremium"
+import { avartarDefault } from "@/constants";
 
 
 const UseAvatar = () => {
-    const { signOut } = useAuthStore();
+    const { signOut, user } = useAuthStore();
     const navigate = useNavigate();
+
+    console.log(user);
 
     const handleLogout = async () => {
         try {
@@ -24,16 +27,21 @@ const UseAvatar = () => {
     }
     return (
         <div className="flex items-center gap-3 md:gap-6">
-            <UpgradePremium />
+            <div className="hidden sm:block">
+                <UpgradePremium />
+            </div>
             <div className="flex items-center gap-4">
                 <DarkMode />
+            </div>
+            <div className="hidden sm:flex sm:items-center sm:gap-4 ">
+                <h1 className="font-bold text-[#37003c] dark:text-white">Hi {user?.displayName}</h1>
             </div>
             <Menu as='div' className="relative inline-block text-left">
                 <div>
                     <MenuButton className='flex items-center gap-x-2 cursor-pointer'>
                         <div className="h-[36px] w-[36px] rounded-full overflow-hidden">
                             <img
-                                src="https://images.unsplash.com/photo-1660304755869-325c2ff6f02d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fG1lc3NpfGVufDB8fDB8fHww"
+                                src={user?.photoURL ?? avartarDefault}
                                 alt=""
                                 className="h-full w-full object-cover"
                             />
