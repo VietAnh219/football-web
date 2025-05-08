@@ -15,20 +15,21 @@ const ClubLogo = ({ src, name, width = "50px", height = "50px", vertical = false
     return (
         <div className={`${vertical ? "flex-col-reverse" : "flex"} ${horizonal ? "flex-row-reverse" : "flex"} items-center justify-center gap-2 `}>
             <p className="w-full text-xs md:text-[16px] text-center leading-tight truncate dark:text-[white]">{name}</p>
-            {isLoading && (
+            {(isLoading && !src) ? (
                 <div>
                     <Skeleton
                         className="rounded-4xl"
                         style={{ width, height }}
                     />
                 </div>
+            ) : (
+                <img
+                    src={src}
+                    alt={name}
+                    style={{ width, height }}
+                    onLoad={() => setIsLoading(false)}
+                />
             )}
-            <img
-                src={src}
-                alt={name}
-                style={{ width, height }}
-                onLoad={() => setIsLoading(false)}
-            />
         </div>
     )
 }

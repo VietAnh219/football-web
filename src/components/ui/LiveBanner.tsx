@@ -1,4 +1,4 @@
-import { imagesLogoL1, imagesLogoLiga } from "@/constants"
+import { imagesLogoL1 } from "@/constants"
 import ClubLogo from "./ClubName"
 import StatBar from "./StarBar"
 import { useEffect, useState } from "react";
@@ -30,13 +30,13 @@ const LiveBanner = () => {
                 </div>
                 <p className="text-xl text-yellow-400">vs</p>
                 <div className="w-[70px] h-[90px]">
-                    <ClubLogo src={imagesLogoLiga.barc} name="Barca" width={logoSize} height={logoSize} vertical />
+                    <ClubLogo src="https://crests.football-data.org/108.png" name="Inter" width={logoSize} height={logoSize} vertical />
                 </div>
             </div>
             <div className="w-full">
-                <StatBar left={7} right={3} label="Win" />
-                <StatBar left={12} right={7} label="Lose" />
-                <StatBar left={7} right={3} label="Draw" />
+                <StatBar left={62} right={48} label="Possession %" />
+                <StatBar left={28} right={22} label="Shots on Target %" />
+                <StatBar left={88} right={84} label="Pass Accuracy %" />
             </div>
         </div>
     )

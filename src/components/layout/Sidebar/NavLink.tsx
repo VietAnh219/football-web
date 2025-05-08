@@ -52,5 +52,3 @@ export const NavLink = ({ linkData, onLinkClick }: { linkData: MenuItem[], onLin
 
 
 }
-
-// export default NavLink

@@ -7,6 +7,7 @@ import { roundMatch } from "@/components/utils/roundMatch";
 import { useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { SkeletonFixture } from "@/components/ui/AllSkeleton";
+import { getLogoLeague } from "@/components/utils/getLogoLeague";
 
 
 const Fixtures = () => {
@@ -18,6 +19,7 @@ const Fixtures = () => {
     const [round, setRound] = useState(legueRound);
     const { data: fixtures, isLoading } = useFixtures(endpoint, round);
     const groupedFixtures = groupFixturesByDate(fixtures ?? []);
+    const logoLeague = getLogoLeague(endpoint);
 
     return (
         <>
@@ -55,7 +57,10 @@ const Fixtures = () => {
                         >
                             {groupedFixtures.map((round, index) => (
                                 <div className="mt-6" key={index}>
-                                    <h1 className="mb-4 text-[16px] md:text-xl text-[#37003c] font-bold dark:text-white">{round.date}</h1>
+                                    <div className="flex items-center justify-between mb-4">
+                                        <h1 className="text-[16px] md:text-xl text-[#37003c] font-bold dark:text-white">{round.date}</h1>
+                                        <img src={logoLeague} alt="" className="w-[50px] h-[50px] xl:w-[60px] xl:h-[60px]" />
+                                    </div>
                                     <MatchCard matches={round.matches} />
                                 </div>
                             ))}

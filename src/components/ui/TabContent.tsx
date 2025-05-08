@@ -12,7 +12,6 @@ const TabContent = ({ selectedTab, matchData }: { selectedTab: TabKey, matchData
     }
 
     const filteredMatches = matchData.filter((match) => match.status === statusMap[selectedTab]);
-    // console.log(filteredMatches);
 
     if (filteredMatches.length === 0) {
         return <div className="text-center text-gray-500">No matches available</div>;
