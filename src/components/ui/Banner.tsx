@@ -37,7 +37,7 @@ const Banner = () => {
                     <div className="text-white font-medium flex items-center gap-1 text-2xl">
                         <ClubLogo src={imagesLogoL1.psg} name="Paris SG" width={logoSize} height={logoSize} horizonal />
                         <p className="text-sm text-yellow-400">vs</p>
-                        <ClubLogo src="https://crests.football-data.org/108.png" name="Intermilan" width={logoSize} height={logoSize} />
+                        <ClubLogo src="https://crests.football-data.org/108.png" name="InterMilan" width={logoSize} height={logoSize} />
                     </div>
                     <div className="text-white text-xs sm:text-2xl">
                         <p>{formatUTCDate("2025-05-31T19:00:00Z")}</p>
