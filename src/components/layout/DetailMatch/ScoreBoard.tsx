@@ -45,7 +45,7 @@ const ScoreBoard = ({ selectedMatch, status }: { selectedMatch: MatchDataType, s
                     {
                         (selectedMatch?.status === "Full-time" || status === "Live") && (
                             <div className="flex w-full justify-around sm:justify-between sm:gap-75">
-                                <div className="flex-col flex mt-6 gap-2">
+                                <div className="flex-col flex mt-6 gap-2 overflow-y-auto max-h-[80px] sm:max-h-[120px] hide-scrollbar">
                                     {homeGoal && homeGoal.length > 0 && homeGoal
                                         .filter(player => player.minute !== 0)
                                         .map((player, index) => (
@@ -60,7 +60,7 @@ const ScoreBoard = ({ selectedMatch, status }: { selectedMatch: MatchDataType, s
                                             </motion.span>
                                         ))}
                                 </div>
-                                <div className="flex-col flex mt-6 gap-2">
+                                <div className="flex-col flex mt-6 gap-2 overflow-y-auto max-h-[80px] sm:max-h-[120px] hide-scrollbar">
                                     {awayGoal && awayGoal.length > 0 && awayGoal
                                         .filter(player => player.minute !== 0)
                                         .map((player, index) => (
