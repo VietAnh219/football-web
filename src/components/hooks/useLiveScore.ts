@@ -225,7 +225,7 @@ const useLiveScore = (matchId?: number) => {
 
                     return newTime;
                 });
-            }, 600); // Update every second
+            }, 4000); // Update every second
         } else if (!gameInProgress && matchData && matchData.phase !== 'fullTime') {
             const finalMatchData = { ...matchData, matchTime: getDisplayedTime(), phase: 'fullTime' };
             updateDataInFirebase(finalMatchData);

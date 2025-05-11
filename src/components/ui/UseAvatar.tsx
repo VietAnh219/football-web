@@ -14,8 +14,6 @@ const UseAvatar = () => {
     const { signOut, user } = useAuthStore();
     const navigate = useNavigate();
 
-    console.log(user);
-
     const handleLogout = async () => {
         try {
             await signOut();

@@ -57,7 +57,7 @@ export type ScoreType = {
     };
     motm: {
         name: string;
-        shirtNumber: number;
+        img: string;
     };
     winner: "HOME_TEAM" | "AWAY_TEAM" | "DRAW" | string;
 };

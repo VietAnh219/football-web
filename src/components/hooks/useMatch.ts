@@ -1,20 +1,3 @@
-// import api from '@/lib/axios';
-// import { useQuery } from '@tanstack/react-query';
-
-
-// export const useGetMatch = ({ endpointMatch }: { endpointMatch: string }) => {
-//     console.log(endpointMatch)
-//     return useQuery({
-//         queryKey: ['match', endpointMatch],
-//         queryFn: async () => {
-//             const response = await api.get(`/${endpointMatch}`)
-//             return response.data
-//         },
-//         staleTime: 1000 * 60 * 5,
-//     })
-// }
-// hooks/useGetMatch.ts
-
 import { database, db } from '@/firebase';
 import { useQuery } from '@tanstack/react-query';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
