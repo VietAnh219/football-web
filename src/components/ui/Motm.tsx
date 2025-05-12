@@ -14,7 +14,7 @@ const Motm = ({ selectedMatch }: { selectedMatch: MatchDataType }) => {
                     <img
                         src={selectedMatch.score?.motm.img}
                         alt=""
-                        className="w-[180px] sm:w-[300px] md:w-[400px] lg:w-[500px] xl:w-[500px] max-w-none object-contain translate-y-10 translate-x-30 sm:translate-y-14 md:translate-y-30 md:translate-x-50 lg:translate-y-20 lg:translate-x-100"
+                        className="w-[180px] sm:w-[300px] md:w-[400px] lg:w-[500px] xl:h-[450px] max-w-none object-contain translate-y-10 translate-x-30 sm:translate-y-14 md:translate-y-30 md:translate-x-50 lg:translate-y-20 lg:translate-x-100"
                     />
                 </div>
 
