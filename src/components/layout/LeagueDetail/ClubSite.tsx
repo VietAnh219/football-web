@@ -15,7 +15,7 @@ const ClubSite = ({ league }: { league: string }) => {
     const navigate = useNavigate();
     const handleClick = (id: number, club: Club) => {
         setSelectedClub(club)
-        navigate(`/CL/${id}`);
+        navigate(`/${league}/${id}`);
     };
 
     const isCL = league === "CL";
